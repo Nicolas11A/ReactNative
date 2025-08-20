@@ -1,35 +1,75 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React,{Component} from 'react';
+import { StyleSheet, View, Text,Image,ScrollView,TextInput,Button,Alert} from 'react-native';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View, Text } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+class App extends Component{
+  constructor(props){
+    super(props);
+    this.state=[
+      nombre='',
+      apellido='',
+      email='',
+      telefono='',
+      descripcion='',
+      mostrarPerfil= false,
+      mensajeAprobacion= "Perfil creado con exito"
+    ];
+  };
+//metodo  
+manejarCambioNombre=(texto)=>{
+  this.setState({
+    nombre: texto,
+    mostrarPerfil: false,
+    mensajeAprobacion: "informacion actualisada"
+  });
+};
+manejarCambioApellido=(texto)=>{
+  this.setState({
+    apellido: texto,
+    mostrarPerfil: false,
+    mensajeAprobacion: "informacion actualisada"
+  });
+};
+manejarCambioEmail=(texto)=>{
+  this.setState({
+    email: texto,
+    mostrarPerfil: false,
+    mensajeAprobacion: "informacion actualisada"
+  });
+};
+manejarCambioTelefono=(texto)=>{
+  this.setState({
+    telefono: texto,
+    mostrarPerfil: false,
+    mensajeAprobacion: "informacion actualisada"  
+  });
+};
+manejarCambioDescripcion=(texto)=>{
+  this.setState({
+    descripcion: texto,
+    mostrarPerfil: false,
+    mensajeAprobacion: "informacion actualisada"    
+  });
+};
+limpiarFormulario=()=>{
+   this.setState({
+      nombre:'',
+      apellido:'',
+      email:'',
+      telefono:'',
+      descripcion:'',
+      mostrarPerfil: false,
+      mensajeAprobacion: "Limpiar campos"
+   });
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+   Alert.alert(
+    'Formulario limpiando',//titulo de la alert
+    'Todos los campos han sido borrados',
+    [{texto:'OK'}]
+   );
 
-  return (
-    <SafeAreaProvider>
-      <Text>
-        HOLA MUNDO
-      </Text>
-
-    </SafeAreaProvider>
-  );
 }
 
- 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+
+};
 
 export default App;
