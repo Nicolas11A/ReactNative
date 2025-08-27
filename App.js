@@ -19,35 +19,35 @@ manejarCambioNombre=(texto)=>{
   this.setState({
     nombre: texto,
     mostrarPerfil: false,
-    mensajeAprobacion: "informacion actualisada"
+    mensajeAprobacion: "informacion actualizada"
   });
 };
 manejarCambioApellido=(texto)=>{
   this.setState({
     apellido: texto,
     mostrarPerfil: false,
-    mensajeAprobacion: "informacion actualisada"
+    mensajeAprobacion: "informacion actualizada"
   });
 };
 manejarCambioEmail=(texto)=>{
   this.setState({
     email: texto,
     mostrarPerfil: false,
-    mensajeAprobacion: "informacion actualisada"
+    mensajeAprobacion: "informacion actualizada"
   });
 };
 manejarCambioTelefono=(texto)=>{
   this.setState({
     telefono: texto,
     mostrarPerfil: false,
-    mensajeAprobacion: "informacion actualisada"  
+    mensajeAprobacion: "informacion actualizada"  
   });
 };
 manejarCambioDescripcion=(texto)=>{
   this.setState({
     descripcion: texto,
     mostrarPerfil: false,
-    mensajeAprobacion: "informacion actualisada"    
+    mensajeAprobacion: "informacion actualizada"    
   });
 };
 limpiarFormulario=()=>{
@@ -63,7 +63,7 @@ limpiarFormulario=()=>{
 
    Alert.alert(
     'Formulario limpiando',//titulo de la alert
-    'Todos los campos han sido borrados',
+    'Todos los campos han sido borrados', 
     [{texto:'OK'}]
    );
 
@@ -79,11 +79,11 @@ render(){
 
 return(
   <>
-    <ScrollView>
-      <View>
+    <ScrollView style={styles.container}> 
+      <View style={styles.header}>
         <Image
-          source={{uri:'ruta de imagen'}}
-          //style='se crea el estilo'
+          source={{uri:'https://cdn-icons-png.flaticon.com/512/3135/3135715.png'}}
+          style={styles.imagen}
           resizeMode='cover'
         />
         <Text>Mi perfil de usuario</Text>
@@ -93,21 +93,21 @@ return(
         <Text>Nombre</Text>
         <TextInput
           value={nombre}
-          onChangeText={manejarCambioNombre}
+          onChangeText={this.manejarCambioNombre}
           placeholder='Ingresa tu Nombre'
           placeholderTextColor="#999"
         />
         <Text>Apellido</Text>
         <TextInput
           value={apellido}
-          onChangeText={manejarCambioApellido}
+          onChangeText={this.manejarCambioApellido}
           placeholder='Ingresa tu apellido'
           placeholderTextColor="#999"
         />
         <Text>email</Text>
         <TextInput
           value={email}
-          onChangeText={manejarCambioEmail}
+          onChangeText={this.manejarCambioEmail}
           placeholder='Ingresa tu email'
           placeholderTextColor="#999"
         />
@@ -129,7 +129,7 @@ return(
       <View>
         <Button
           title='guardar perfil'
-          onPress={}// hace falta crear el metodo de guardar
+          //onPress={}// hace falta crear el metodo de guardar
         />
         <Button
           title='Limpiar campos'
@@ -139,10 +139,39 @@ return(
 
     </ScrollView>
   </>
-)
+);
 };
 
 
 };
+
+const styles = StyleSheet.create({  
+  //se crean los estilos
+  container:{
+    flex:1,
+    backgroundColor:'#ffffffff'
+  },
+  header:{
+    backgroundColor:'#53bfbaff',
+    alignItems:'center',
+    marginBottom:20,
+    padding:30
+  },
+  imagen:{
+    width:80,
+    height:80,
+    borderRadius:30,
+    marginBottom:15,
+    borderWidth:4,
+    borderColor:'#white'
+  }
+
+    
+
+  }
+
+
+
+);    
 
 export default App;
